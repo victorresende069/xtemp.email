@@ -8,6 +8,7 @@ $dados = file_get_contents("php://input");
 $UserAgent = $_SERVER['HTTP_USER_AGENT'];
 $date = date("d/m/y");
 $hours = date("H:i:s");
+$fulldate = date("d/m/y - H:i:s");
 $internetProtocol = getenv('HTTP_CLIENT_IP')?:
 getenv('HTTP_X_FORWARDED_FOR')?:
 getenv('HTTP_X_FORWARDED')?:
