@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xTemp Email - Project BETA</title>
     <link rel="stylesheet" href="assets/css/login.css"/>
+    <script type="text/javascript" src="assets/js/jquery-3.6.1.min.js"></script>
     
 </head>
 <body>
 
-        <div class="app">
+        <div class="app" id="app">
+
             <div id="form" class="form">
                 <h1 class="h1Form">xTemp Email</h1>
                 <div class="formInput">
@@ -22,16 +24,14 @@
                     <input id="pass" class="passInput Inputs" type="password" placeholder="">
                 </div>
 
-                <div class="msgReturnUser">Usuário ou Senha Invalida</div>
-
+                <div class="msgReturnUser"></div>
 
                 <div class="formSubmit">
                     <button id="submit" class="btnUser Inputs" type="submit">Entrar</button>
                 </div>
 
-
-
             </div>
+
         </div>
 
     <script type="text/javascript" src="assets/js/login.js"></script>

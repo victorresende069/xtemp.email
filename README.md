@@ -8,7 +8,7 @@
 ## 🔧 Tecnologias e ferramentas utilizadas
 - **HTML**
 - **CSS**
-- **JAVASCRIPT**
+- **JAVASCRIPT/Jquery**
 - **VIRTUAL PRIVATE NETWORK**
 
 ## 🚀 executando o projeto
