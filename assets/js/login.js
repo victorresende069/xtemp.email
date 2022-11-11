@@ -20,6 +20,9 @@ $("#submit").click(function() {
         data: data,
         contentType: "application/json",
         dataType: 'json',
+        headers: {
+            "HeaderViewFunction":"login"
+        },
         success: function(data) { alert('data: ' + data); },
     });
 

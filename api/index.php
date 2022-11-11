@@ -16,10 +16,5 @@ getenv('HTTP_FORWARDED')?:
 getenv('REMOTE_ADDR');
 require_once('../funcs/database/connect.php'); //BANCO DE DADOS
 $obj = json_decode($dados);
-
-
-
-
-
-
+require_once('switch.php'); //ROTAS DO API
 ?>
