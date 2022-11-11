@@ -40,6 +40,7 @@
     border-radius: 4px;
     height: 30px;
     width: 120px;
+    cursor: pointer;
 }
 .h1Form{
     font-family: monospace;

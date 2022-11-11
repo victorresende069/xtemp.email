@@ -12,9 +12,23 @@ $("#submit").click(function() {
         return false;
     }
 
-    $.post("api/", {user: user, pass: pass}).done(function(data) {
-        alert('teste' + data);
+    let data = JSON.stringify({user: user, pass: pass});
+
+    $.ajax({
+        type: 'POST',
+        url: 'api/',
+        data: data,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(data) { alert('data: ' + data); },
     });
 
 
+    /*
+    $.post("api/", data).done(function(data) {
+        alert('teste' + data);
+
+
+    }, "json");
+    */
 });
