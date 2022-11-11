@@ -1,0 +1,58 @@
+*{  
+    background: rgb(83, 174, 253);
+    margin: 0px;
+}
+
+.app{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.form label{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 600;
+}
+.formInput input{
+    background: white;
+    font-size: 14px;
+    border: none;
+    width: 140px;
+    height: 22px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.formSubmit button{
+    background: white;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    border: 8px red;
+    border-radius: 4px;
+    height: 30px;
+    width: 120px;
+}
+.h1Form{
+    font-family: monospace;
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.formSubmit{
+    margin-top: 10px;
+}
+
+.msgReturnUser{
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 14px;
+}
