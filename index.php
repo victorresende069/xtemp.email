@@ -1,5 +1,35 @@
 <?php
 
-    include_once "view/login/login.html";
+    require_once('funcs/database/connect.php'); //BANCO DE DADOS
+
+    if(!isset($_GET['tokenGet']) !== true){
+        $tokenGet = $_GET['tokenGet'];
+
+        $rowToken = mysqli_num_rows(mysqli_query($connect, 
+        "SELECT * FROM user WHERE token='{$tokenGet}'"));
+
+            if($rowToken == 1){
+                header("HTTP/1.1 202 Accepted");
+                setcookie("token", $_GET['tokenGet'], time() + 60*5);
+                header('location: ./');
+                exit(); 
+            }
+            else{
+                header("HTTP/1.1 401 Unauthorized");
+                header('location: ./');
+                exit(); 
+            }        
+    }
+    else{ 
+
+        if(!isset($_COOKIE['token']) !== TRUE ){
+            include_once "view/user/dash.html";
+        }
+        else{
+            include_once "view/login/login.html";
+        }
+
+    }
+
 
 ?>

@@ -23,7 +23,29 @@ $("#submit").click(function() {
         headers: {
             "HeaderViewFunction":"login"
         },
-        success: function(data) { alert('data: ' + data); },
+        success: function(data) {   
+            //var obj = JSON.parse(data);
+            if(data.status === 202){
+                $(".msgReturnUser").html('Conectado com sucesso!');
+                $('.msgReturnUser').css('color', '#17b506');
+                setTimeout(() => {
+                    window.location.href = '?tokenGet='+data.token;
+                }, 2000);
+            }
+            else{
+                $(".msgReturnUser").html(data.return);
+                $(".msgReturnUser").css('color', '#8f0000');
+                setTimeout(() => {
+                    $(".msgReturnUser").html('');
+                }, 3000);  
+            }
+     
+    
+        },
+        error: function(data) {
+      
+        }
+
     });
 
 

@@ -26,7 +26,7 @@
         $token = substr(md5($toUs), 0, 12);
 
         mysqli_query($connect, "UPDATE user SET token='$token' WHERE user='{$user}'");
-
+        setcookie("token", $token, time() + 60*2); //SALVA COOKIE SESSION POR 1 MINUTOS
 
         $retorno = array("status" => 202, "token" => $token);
         echo json_encode($retorno);
@@ -35,7 +35,6 @@
     else{
         $retorno = array("status" => 401, "return" => "E-mail e/ou senha incorreta");
         echo json_encode($retorno);
-        header("HTTP/1.1 401 Unauthorized");
         exit(); 
     }
 
