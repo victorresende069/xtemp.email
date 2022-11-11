@@ -3,7 +3,7 @@
 ![]() 
 ![]()
 
-> ###### Um Projeto de Servidores de emails Temporarios, essa aplicação e open source, apenas vai requisitar integrações externas.
+> ###### Um Projeto de Servidores de emails Temporarios, essa aplicação é open source, apenas vai requisitar integrações externas.
 
 ## 🔧 Tecnologias e ferramentas utilizadas
 - **HTML**
