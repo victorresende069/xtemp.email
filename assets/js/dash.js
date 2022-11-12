@@ -1,0 +1,3 @@
+$('.updateMailBox').click(()=>{
+    alert(true);
+})
