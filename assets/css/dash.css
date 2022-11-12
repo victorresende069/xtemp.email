@@ -18,8 +18,8 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    height: 600px;
-    width: 100%;
+    height: 750px;
+    width: 75%;
     background: white;
     border-radius: 24px;
 }
@@ -33,7 +33,7 @@ body{
     margin-top: 10px;
     background: rgba(0, 0, 0, 0.11);
     width: 90%;
-    height: 85%;
+    height: 90%;
     border-radius: 24px;
 }
 .xtempMail .Fmail{
@@ -41,17 +41,138 @@ body{
     width: 100%;
     height: 100%;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 
-.menuMail{
-    background: red;
+.menuMail {
     width: 30%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    border-radius: 25px 0px 0px 25px;
+    box-shadow: inset 0 0 12px -4px #9d9d9d;
 }
-.inboxMail{
-    background: blue;
+.menu{
+    display: flex;
+    flex-direction: column;
+    margin: 28px;
+}
+
+
+.menuMail .menu a{
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 22px;
+}
+
+.mails {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;
+    background-position: 218px center;
+    width: 100%;
+    padding-left: 8px;
+    font-family: monospace;
+    height: 30px;
+    font-weight: bold;
+    border: 1px solid #9f9f9f;
+}
+
+.menuMail .menu label{
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.inboxMail {
+    overflow-y: scroll;
     width: 100%;
     height: 100%;
+    border-radius: 0px 25px 25px 0px;
+    box-shadow: inset 0 0 12px -4px #959595;
 }
+
+.Mail1{
+    background: #00000014;
+    padding: 10px;
+    margin: 14px;
+    margin-left: 20px;
+    border-radius: 8px;
+}
+
+.Mail1 h1{ 
+    font-family: monospace;
+}
+
+.Mail1 p{ 
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tituloMail{
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.actionMail{
+    padding: 8px;
+}
+.actionMail a{
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #0000006e; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b7b7b7;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
