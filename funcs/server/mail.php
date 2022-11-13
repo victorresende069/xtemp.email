@@ -1,7 +1,7 @@
 <?php
 class aaPanelAPiMail {
-	private $BT_KEY = "";  //接口密钥
-  	private $BT_PANEL = "";	   //面板地址
+	private $BT_KEY = "ghlW2qbA5espavvBzF2d7HcWPVxmsE7h";  //接口密钥
+  	private $BT_PANEL = "https://serv1.xtemp.email:7800/";	   //面板地址
 	
 
 	public function __construct($bt_panel = null,$bt_key = null){

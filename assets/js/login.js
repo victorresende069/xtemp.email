@@ -21,7 +21,7 @@ $("#submit").click(function() {
         contentType: "application/json",
         dataType: 'json',
         headers: {
-            "HeaderViewFunction":"login"
+            "HeaderFunction":"login"
         },
         success: function(data) {   
             //var obj = JSON.parse(data);

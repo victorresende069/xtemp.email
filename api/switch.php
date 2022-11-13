@@ -1,14 +1,20 @@
 <?php
 
-    $HeaderViewServer = $_SERVER['HTTP_HEADERVIEWFUNCTION'];
+    $HeaderClientFunction = $_SERVER['HTTP_HEADERFUNCTION'];
 
-    switch ($HeaderViewServer) {
+    switch ($HeaderClientFunction) {
         case 'login':
                 require_once('../funcs/user/login.php');
                 exit();
             break;
         
 
+        case 'inboxMail':
+            
+            
+            break;
+
+            
         default: //SEM ROTA API VAI RETORNA UM ERROR 
                 $retorno = array("status" => 'ERROR');
                 echo json_encode($retorno);
