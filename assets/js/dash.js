@@ -1,14 +1,14 @@
 $('.boxMail').click(()=>{
     $('.inboxMail').html('');
-    var mail = $('').val();
-
+    var mail = $('#mails').val();
+    let data = JSON.stringify({mail: mail});
     $.ajax({
         type: 'POST',
         url: 'api/',
-        data: '',
+        data: data,
         contentType: 'application/json',
         dataType: 'json',
-        Headers: {
+        headers: {
             'HeaderFunction':'inboxMail'
         },
         success: function (data) {

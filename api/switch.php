@@ -10,8 +10,8 @@
         
 
         case 'inboxMail':
-            
-            
+                require_once('../funcs/mail/inbox.php');
+                exit();
             break;
 
             
