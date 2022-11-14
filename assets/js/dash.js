@@ -1,3 +1,6 @@
+
+bodyMailsList();
+
 $('.boxMail').click(()=>{
     $('.inboxMail').html('');
     var mail = $('#mails').val();
@@ -41,11 +44,90 @@ $('.boxMail').click(()=>{
     });
 })
 
+$('.sairMail').click(()=>{
+    window.location.href = './?deslogar=true';
+});
+
+
+$('#addMail').click(()=>{
+    $('.inboxMail').html('');
+        $.ajax({
+            type: 'POST',
+            url: 'api/',
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: {
+                'HeaderFunction':'addMail'
+            },
+            success: function (data) {
+
+                if(data.status){
+                                    $('.inboxMail').html(`  
+                                    <div>
+                                        <div class="inboxAddMail">
+                                            <label>Usuário</label>
+                                            <input  type="text" id="userMail" class="inputaddMail" />
+                            
+                                            <label style="margin-top: 20px;">Email/Domínio</label>
+                                            <select class="selectMail" id="domainMail">
+                                                <option>@xtemp.email</option>
+                                                <option>@meuxtemp.live</option>
+                                            </select>
+                            
+                                            <div class="textaddMail">
+                                                    <label>Emails Criado:</label>
+                                                    <span>`+data.emailUsed+`/<b>`+data.maxMail+`
+                                                    </b>
+                                                    </span>
+                                            </div>
+                            
+                                            <div class="addMail">
+                                                <button class="btnaddMail" id="createMail">Criar</button>
+                                            </div>
+                            
+                            
+                                        </div>
+                                    <div>
+                                `);
+                }
+                else{
+
+                }
+                
+            },
+            error: function (){
+
+            }
+        });
+
+});
+
+
 
 document.querySelector('#mails').addEventListener('change', function(){
     var mail = document.getElementById('mails').value
 });
 
+
+function bodyMailsList() {
+    $.ajax({
+        type: 'POST',
+        url: 'api/',
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: {
+            'HeaderFunction':'listMail'
+        },
+        success: function (array) {
+            for (let i = 1; i < array.listMails.length; i++) {
+                const element = array[i];
+                console.log(array.listMails[i]);
+                $('#mails').append(`<option value="`+array.listMails[i]+`">`+array.listMails[i]+`</option>`); 
+            }
+        },
+        error: function (){}
+    })
+}
 
 
 function deleteMailBox(path) {
@@ -87,14 +169,14 @@ function viewMailBox(id) {
             },
             success: function (data) {
                 $('.inboxMail').html(`
-                <div class="inboxOpen" style="display: block;">
-                    <div class="inboxContainerOpen">
-                                <h1>`+data.subject+`</h1>
-                                <p>`+data.from+`</p>
-                                `+data.html+`
+                    <div class="inboxOpen" style="display: block;">
+                        <div class="inboxContainerOpen">
+                                    <h1>`+data.subject+`</h1>
+                                    <p>`+data.from+`</p>
+                                    `+data.html+`
+                        </div>  
                     </div>  
-                </div>
-        `);
+                    `);
             },
             error: function (){
 

@@ -18,7 +18,7 @@
                         exit();
                     endif;
 
-                    if($obj->{'view'}):
+                    if($obj->{'view'}): //Ver Email
                             $mail = $obj->{'mail'};
                             $emailInbox = $api->GetMails($mail);
                             $mailData = $emailInbox['data'];
@@ -26,12 +26,20 @@
                             echo $jsonMail;
                         exit();
                     endif;
-
+                    
                 require_once('../funcs/mail/inbox.php');
                 exit();
             break;
 
-
+        case 'addMail':
+                require_once('../funcs/user/addmail.php');
+                exit();
+            break;
+            
+        case 'listMail':
+                require_once('../funcs/user/listmail.php');
+                exit();
+            break;
 
             
         default: //SEM ROTA API VAI RETORNA UM ERROR 

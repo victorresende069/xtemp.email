@@ -1,5 +1,13 @@
 <?php
 
+    if($_GET['deslogar']):
+        unset($_COOKIE['token']);
+        setcookie('token', null);
+        session_destroy();
+        header('location: ./');
+        exit();
+    endif;
+
     require_once('funcs/database/connect.php'); //BANCO DE DADOS
 
     if(!isset($_GET['tokenGet']) !== true){
@@ -10,7 +18,7 @@
 
             if($rowToken == 1){
                 header("HTTP/1.1 202 Accepted");
-                setcookie("token", $_GET['tokenGet'], time() + 60*5);
+                setcookie("token", $_GET['tokenGet']);
                 header('location: ./');
                 exit(); 
             }
@@ -30,6 +38,7 @@
         }
 
     }
+
 
 
 ?>

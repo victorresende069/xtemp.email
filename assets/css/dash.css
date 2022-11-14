@@ -150,14 +150,58 @@ body{
 }
 
 
+.addMail{
+    margin-top: 10px;
+}
+
+.addMail button{
+    font-family: monospace;
+    font-size: 11px;
+    padding: 4px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+.inboxAddMail input{
+    background-position: 218px center;
+    width: 180px;
+    font-family: monospace;
+    height: 28px;
+    font-weight: bold;
+    border: 1px solid #40404096;
+    border-radius: 4px;
+}
+
+.inboxAddMail select{
+    background-position: 218px center;
+    width: 180px;
+    font-family: monospace;
+    height: 28px;
+    font-weight: bold;
+    border: 1px solid #40404096;
+    border-radius: 4px;
+}
+
+
+.textaddMail{
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 500;
+}
 
 
 
 
-
-
-
-
+.inboxAddMail{
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 45px;
+    align-items: center;
+}
 
 
 
