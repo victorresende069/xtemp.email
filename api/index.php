@@ -15,7 +15,8 @@ getenv('HTTP_X_FORWARDED')?:
 getenv('HTTP_FORWARDED_FOR')?:
 getenv('HTTP_FORWARDED')?:
 getenv('REMOTE_ADDR');
-require_once('../funcs/database/connect.php'); //BANCO DE DADOS
 $obj = json_decode($dados);
+require_once('../funcs/database/connect.php'); //BANCO DE DADOS
+require_once('../funcs/server/mail.php'); //SERVIDOR EMAIL AAPANEL
 require_once('switch.php'); //ROTAS DO API
 ?>

@@ -14,7 +14,7 @@ class aaPanelAPiMail {
 
 		$url = $this->BT_PANEL.'/plugin?action=a&name=mail_sys&s=get_mails';
 		
-		$p_data = $this->GetKeyData();		//取签名
+		$p_data = $this->GetKeyData();
 		$p_data['username'] = $mail;
 		$p_data['p'] = 1;
 
@@ -28,7 +28,7 @@ class aaPanelAPiMail {
 
 		$url = $this->BT_PANEL.'/plugin?action=a&name=mail_sys&s=get_domains';
 		
-		$p_data = $this->GetKeyData();		//取签名
+		$p_data = $this->GetKeyData();
 		$p_data['p'] = 1;
         $p_data['size'] = 10;
 
@@ -42,7 +42,7 @@ class aaPanelAPiMail {
 
 		$url = $this->BT_PANEL.'/plugin?action=a&name=mail_sys&s=add_mailbox';
 		
-		$p_data = $this->GetKeyData();		//取签名
+		$p_data = $this->GetKeyData();
 		$p_data['quota'] = "$storage MB";
         $p_data['username'] = "$user@$domain";
 		$p_data['password'] = "$password";
@@ -59,8 +59,22 @@ class aaPanelAPiMail {
 
 		$url = $this->BT_PANEL.'/plugin?action=a&name=mail_sys&s=delete_mailbox';
 		
-		$p_data = $this->GetKeyData();		//取签名
+		$p_data = $this->GetKeyData();
 		$p_data['username'] = $email;
+
+		$result = $this->HttpPostCookie($url,$p_data);
+		
+		$data = json_decode($result,true);
+      	return $data;
+	}
+
+
+	public function deleteInboxMail($path){
+
+		$url = $this->BT_PANEL.'/plugin?action=a&name=mail_sys&s=delete_mail';
+
+		$p_data = $this->GetKeyData();
+		$p_data['path'] = $path;
 
 		$result = $this->HttpPostCookie($url,$p_data);
 		
