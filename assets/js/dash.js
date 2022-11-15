@@ -143,7 +143,8 @@ $('#addMail').click(()=>{
                                 $('#domainMail').append(data.domainMails); 
                 }
                 else{
-                    $('.inboxMail').html(data.return);
+                    alert(data.msg);
+                    window.location.reload();
                 }
                 
             },
@@ -196,9 +197,48 @@ document.querySelector('#mails').addEventListener('change', function(){
 });
 
 
+setInterval(() => {
+    updateInbox();
+}, 2000);
 
+function updateInbox() {
+    var mail = $('#mails').val();
+    let data = JSON.stringify({mail: mail});
+    $.ajax({
+        type: 'POST',
+        url: 'api/',
+        data: data,
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: {
+            'HeaderFunction':'inboxMail'
+        },
+        success: function (data) {
+            
+            $('.inboxMail').html('');
 
+            data.forEach(function(element, id) {
+                
+                $('.inboxMail').append(`
+                <div class="Mail1">
+                    <h2 class="tituloMail">`+element.subject+`</h2>
+                        <p>`+element.from+` </p>
+                            <div class="actionMail">
+                                <a onclick="deleteMailBox('`+element.path+`');"; style="color: red;">Deletar</a>
+                                <a onclick="viewMailBox('`+id+`');"; style="color: green;">Mostrar</a>
+                            </div>
+                </div>
+                `);
+                
+            });
+            
+        },
+        error: function (){
 
+        }
+
+    });
+}
 
 
 function bodyMailsList() {

@@ -9,8 +9,8 @@
         $rowMails = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM mailsserver WHERE id_user='{$IDuser}'"));
 
 
-        if($rowMails > $sqlADDEMailResult['maxemails']):
-                $retorno = array('status' => false, 'return' => 'Você não pode criar mais email!', 'maxMail' => $sqlADDEMailResult['maxemails'], 'emailUsed' => $rowMails);
+        if($rowMails >= $sqlADDEMailResult['maxemails']):
+                $retorno = array('status' => false, 'msg' => 'Você não pode criar mais email!', 'maxMail' => $sqlADDEMailResult['maxemails'], 'emailUsed' => $rowMails);
                 echo json_encode($retorno);
                 exit();
         endif;

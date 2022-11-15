@@ -51,7 +51,7 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0px;
-    border-radius: 25px 0px 0px 25px;
+    border-radius: 2px 0px 0px 2px;
     box-shadow: inset 0 0 12px -4px #9d9d9d;
 }
 .menu{
@@ -99,7 +99,7 @@ body{
     overflow-y: scroll;
     width: 100%;
     height: 100%;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 0px 2px 2px 0px;
     box-shadow: inset 0 0 12px -4px #959595;
 }
 
@@ -263,6 +263,44 @@ input:disabled {
     font-weight: bold;
     margin-top: 8px;
 }
+
+
+
+
+
+
+
+/*MOBILE*/
+@media (max-width:768px)  { 
+        
+    #app {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        margin-bottom: 40px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 12px;
+        height: 100%;
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+    }
+    .menuMail{
+        display: block;
+        width: 100%;
+    }
+
+    .xtempMail .Fmail {
+        flex-direction: column-reverse;
+    }
+   
+}
+
 
 /* width */
 ::-webkit-scrollbar {
