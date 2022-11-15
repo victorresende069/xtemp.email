@@ -26,6 +26,7 @@ ALTER TABLE `user`
     `usermail` varchar(255) NOT NULL,
     `passmail` varchar(255) NOT NULL,
     `storagemail` varchar(255) NOT NULL,
+    `dateCreate` varchar(255) NOT NULL,
     `token` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -34,8 +35,5 @@ ALTER TABLE `mailsserver`
 
 ALTER TABLE `mailsserver`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-
-
 
   

@@ -65,33 +65,35 @@ $('#addMail').click(()=>{
                                     $('.inboxMail').html(`  
                                     <div>
                                         <div class="inboxAddMail">
-                                            <label>Usuário</label>
+
+                                            <label style="margin-top: 20px;">Nome</label>
+                                            <input  type="text" id="userName" class="inputaddMail" />
+                                            
+                                            <label style="margin-top: 20px;">Usuário</label>
                                             <input  type="text" id="userMail" class="inputaddMail" />
                             
                                             <label style="margin-top: 20px;">Email/Domínio</label>
                                             <select class="selectMail" id="domainMail">
-                                                <option>@xtemp.email</option>
-                                                <option>@meuxtemp.live</option>
+
                                             </select>
                             
                                             <div class="textaddMail">
                                                     <label>Emails Criado:</label>
-                                                    <span>`+data.emailUsed+`/<b>`+data.maxMail+`
-                                                    </b>
+                                                    <span>`+data.emailUsed+`/<b>`+data.maxMail+`</b>
                                                     </span>
                                             </div>
                             
                                             <div class="addMail">
-                                                <button class="btnaddMail" id="createMail">Criar</button>
+                                                <button onclick="createMail();">Criar</button>
                                             </div>
-                            
-                            
+
                                         </div>
                                     <div>
                                 `);
+                                $('#domainMail').append(data.domainMails); 
                 }
                 else{
-
+                    $('.inboxMail').html(data.return);
                 }
                 
             },
@@ -99,9 +101,44 @@ $('#addMail').click(()=>{
 
             }
         });
-
 });
 
+
+$('#delMail').click(()=>{
+        var mail = $('#mails').val();
+        let data = JSON.stringify({mail: mail});
+        $('.inboxMail').html('');
+
+        if (confirm('Você realmente quer deletar este Email "'+mail+'"')) {
+                $.ajax({
+                        type: 'POST',
+                        url: 'api/',
+                        data: data,
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        headers: {
+                            'HeaderFunction':'delMail'
+                        },
+                        success: function (data) {
+                            if(data.status){
+                                alert(data.msg);
+                                window.location.reload();
+                            }
+                            else{
+                                alert(data.msg);
+                                window.location.reload();
+                            }
+                        },
+                        error: function(){
+
+                        }
+                })
+           
+          } else {
+            
+          }
+    
+});
 
 
 document.querySelector('#mails').addEventListener('change', function(){
@@ -118,17 +155,49 @@ function bodyMailsList() {
         headers: {
             'HeaderFunction':'listMail'
         },
-        success: function (array) {
-            for (let i = 1; i < array.listMails.length; i++) {
-                const element = array[i];
-                console.log(array.listMails[i]);
-                $('#mails').append(`<option value="`+array.listMails[i]+`">`+array.listMails[i]+`</option>`); 
+        success: function (data) {
+            if(data.status){
+                for (let i = 1; i < data.listMails.length; i++) {
+                    $('#mails').append(`<option value="`+data.listMails[i]+`">`+data.listMails[i]+`</option>`); 
+                }
+            }
+            else{
+                alert(data.return);
             }
         },
         error: function (){}
     })
 }
 
+function createMail() {
+    var domainMail = $('#domainMail').val();
+    var user = $('#userMail').val();
+    var name = $('#userName').val();
+    let data = JSON.stringify({domain: domainMail, name: name, user: user, create: true});
+    $.ajax({
+        type: 'POST',
+        url: 'api/',
+        data: data,
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: {
+            'HeaderFunction':'addMail'
+        },
+        success: function (data) {
+            if(data.status){
+                alert(data.msg);
+                window.location.reload();
+            }
+            else{
+                alert(data.msg);
+            }
+
+        },
+        error: function (){
+
+        }
+    })
+}
 
 function deleteMailBox(path) {
         let data = JSON.stringify({path: path, delete: true});

@@ -32,8 +32,8 @@ body{
 .xtempMail{
     margin-top: 10px;
     background: rgb(255 255 255);
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     border-radius: 24px;
 }
 .xtempMail .Fmail{
@@ -73,7 +73,7 @@ body{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;
+    background: url() no-repeat #eeeeee;
     background-position: 218px center;
     width: 100%;
     padding-left: 8px;
@@ -150,6 +150,19 @@ body{
 }
 
 
+.menuMailbtn{
+    margin-top: 10px;
+}
+
+.menuMailbtn button{
+    font-family: monospace;
+    font-size: 11px;
+    padding: 4px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
 .addMail{
     margin-top: 10px;
 }
@@ -161,7 +174,6 @@ body{
     font-weight: bold;
     margin-top: 8px;
 }
-
 
 .inboxAddMail input{
     background-position: 218px center;

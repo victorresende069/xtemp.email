@@ -31,17 +31,29 @@
                 exit();
             break;
 
-        case 'addMail':
+
+        case 'addMail': //Criar Email
+                    if($obj->{'create'}): 
+                        require_once('../funcs/user/createmail.php');
+                        exit();
+                    endif;
+                    
                 require_once('../funcs/user/addmail.php');
                 exit();
             break;
             
-        case 'listMail':
+        case 'listMail': //Lista Email
                 require_once('../funcs/user/listmail.php');
                 exit();
             break;
 
-            
+        case 'delMail': //Deleta Email
+                require_once('../funcs/user/delmail.php');
+                exit();
+            break;
+   
+
+
         default: //SEM ROTA API VAI RETORNA UM ERROR 
                 $retorno = array("status" => 'ERROR');
                 echo json_encode($retorno);
