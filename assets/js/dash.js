@@ -1,6 +1,56 @@
 
 bodyMailsList();
 
+$('.perfilMail').click(()=>{
+    
+    $.ajax({
+        type: 'POST',
+        url: 'api/',
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: {
+            'HeaderFunction':'profileMail'
+        },
+        success: function (data) {
+
+            if(data.status){
+                $('.inboxMail').html(`
+                
+                        <div>
+                                <div class="inboxProfile">
+
+                                    <label style="margin-top: 20px;">Nome</label>
+                                    <input value="`+data.name+`" type="text" id="ProfileName" class="ProfileName" />
+                                    
+                                    <label style="margin-top: 20px;">Usuário</label>
+                                    <input value="`+data.user+`"  type="text" id="ProfileUser" class="ProfileUser" disabled/>
+
+                                    <label style="margin-top: 20px;">Email</label>
+                                    <input value="`+data.email+`"  type="email" id="ProfileMail" class="ProfileMail" />
+
+                                    <label style="margin-top: 20px;">Senha</label>
+                                    <input value="`+data.senha+`"  type="password" id="ProfilePassword" class="ProfilePassword" />
+
+                                    <input value="`+data.id+`"  type="hidden" id="ProfileID" class="ProfileID" />
+
+                                    <div class="editProfile">
+                                        <button onclick="editProfile();">Editar</button>
+                                    </div>
+
+                                </div>
+                        <div>
+
+                `);
+            }
+            else{
+
+            }
+
+        },
+        error: function (){}
+    })
+});
+
 $('.boxMail').click(()=>{
     $('.inboxMail').html('');
     var mail = $('#mails').val();
@@ -146,6 +196,11 @@ document.querySelector('#mails').addEventListener('change', function(){
 });
 
 
+
+
+
+
+
 function bodyMailsList() {
     $.ajax({
         type: 'POST',
@@ -253,3 +308,35 @@ function viewMailBox(id) {
         })
     
 }
+
+function editProfile() {
+    var id = $('#ProfileID').val();
+    var name = $('#ProfileName').val();
+    var mail = $('#ProfileMail').val();
+    var password = $('#ProfilePassword').val();
+
+    let data = JSON.stringify({id: id, name: name, mail:mail, password: password, edit: true});
+        $.ajax({
+            type: 'POST',
+            url: 'api/',
+            data: data,
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: {
+                'HeaderFunction':'profileMail'
+            },
+            success: function (data) {
+                if(data.status){
+                    alert(data.msg);
+                    window.location.reload();
+                }
+                else{
+                    alert(data.msg);
+                }
+            },
+            error: function (){
+
+            }
+        })
+    
+}  

@@ -51,7 +51,19 @@
                 require_once('../funcs/user/delmail.php');
                 exit();
             break;
+
    
+        case 'profileMail': //Perfil Usuário
+                    if($obj->{'edit'}): 
+                        require_once('../funcs/user/profileeditmail.php');
+                        exit();
+                    endif;
+
+                require_once('../funcs/user/profilemail.php');
+                exit();
+            break;
+
+
 
 
         default: //SEM ROTA API VAI RETORNA UM ERROR 

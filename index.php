@@ -9,12 +9,11 @@
     endif;
 
     require_once('funcs/database/connect.php'); //BANCO DE DADOS
+    require_once('funcs/user/validtoken.php'); //Valida Token e Sessão
 
     if(!isset($_GET['tokenGet']) !== true){
         $tokenGet = $_GET['tokenGet'];
-
-        $rowToken = mysqli_num_rows(mysqli_query($connect, 
-        "SELECT * FROM user WHERE token='{$tokenGet}'"));
+        $rowToken = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM user WHERE token='{$tokenGet}'"));
 
             if($rowToken == 1){
                 header("HTTP/1.1 202 Accepted");

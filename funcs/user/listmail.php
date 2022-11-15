@@ -8,7 +8,7 @@
         
       
         $sqlDomainsUser = mysqli_query($connect, "SELECT domain, usermail FROM mailsserver WHERE user='{$username}'");
-        $linhaMailServer = mysqli_fetch_array($sqlDomainsUser);
+        //$linhaMailServer = mysqli_fetch_array($sqlDomainsUser);
         $total = mysqli_num_rows($sqlDomainsUser);
 
 

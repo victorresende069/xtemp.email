@@ -69,6 +69,10 @@ body{
     margin-top: 22px;
 }
 
+.profileMail{
+    margin-bottom: 20px;
+}
+
 .mails {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -175,6 +179,17 @@ body{
     margin-top: 8px;
 }
 
+
+.inboxAddMail{
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 8px;
+    align-items: center;
+}
+
 .inboxAddMail input{
     background-position: 218px center;
     width: 180px;
@@ -196,6 +211,11 @@ body{
 }
 
 
+input:disabled {
+    cursor: no-drop;
+    border-color: rgba(255, 0, 0, 0.3);
+}
+
 .textaddMail{
     margin-top: 16px;
     font-size: 15px;
@@ -204,21 +224,45 @@ body{
 
 
 
-
-.inboxAddMail{
+.inboxProfile {
     display: flex;
     flex-direction: column;
     font-family: monospace;
-    font-size: 17px;
+    font-size: 22px;
     font-weight: bold;
-    margin-top: 45px;
+    margin-top: 8px;
     align-items: center;
 }
 
+.inboxProfile input{
+    padding-left: 11px;
+    background-position: 218px center;
+    width: 180px;
+    font-family: monospace;
+    height: 28px;
+    font-weight: bold;
+    border: 1px solid #40404096;
+    border-radius: 4px;
+}
+
+.inboxProfile select{
+    background-position: 218px center;
+    width: 180px;
+    font-family: monospace;
+    height: 28px;
+    font-weight: bold;
+    border: 1px solid #40404096;
+    border-radius: 4px;
+}
 
 
-
-
+.editProfile button {
+    font-family: monospace;
+    font-size: 11px;
+    padding: 4px;
+    font-weight: bold;
+    margin-top: 8px;
+}
 
 /* width */
 ::-webkit-scrollbar {
