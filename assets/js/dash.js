@@ -39,8 +39,8 @@ $('.perfilMail').click(()=>{
 
                                 </div>
                         <div>
-
                 `);
+                intervalStopMailBox();
             }
             else{
 
@@ -82,8 +82,9 @@ $('.boxMail').click(()=>{
                                 </div>
                     </div>
                     `);
-                    
                 });
+                intervalStopMailBox();
+                intervalStartMailBox();
             }
 
         },
@@ -141,6 +142,7 @@ $('#addMail').click(()=>{
                                     <div>
                                 `);
                                 $('#domainMail').append(data.domainMails); 
+                                intervalStopMailBox();
                 }
                 else{
                     alert(data.msg);
@@ -194,12 +196,28 @@ $('#delMail').click(()=>{
 
 document.querySelector('#mails').addEventListener('change', function(){
     var mail = document.getElementById('mails').value
+    updateInbox();
+    intervalStopMailBox();
+    intervalStartMailBox();
 });
 
 
-setInterval(() => {
-    updateInbox();
-}, 2000);
+    var intervalBoxMail;
+    intervalStartMailBox();
+
+    function intervalStartMailBox(){
+        intervalBoxMail = setInterval(() => {
+            updateInbox();
+        }, 5000);
+    }
+
+    function intervalStopMailBox(){
+        clearInterval(intervalBoxMail);
+    }
+
+
+
+
 
 function updateInbox() {
     var mail = $('#mails').val();
@@ -232,6 +250,7 @@ function updateInbox() {
                 
             });
             
+
         },
         error: function (){
 
@@ -255,6 +274,9 @@ function bodyMailsList() {
                 for (let i = 1; i < data.listMails.length; i++) {
                     $('#mails').append(`<option value="`+data.listMails[i]+`">`+data.listMails[i]+`</option>`); 
                 }
+
+                updateInbox();
+
             }
             else{
                 alert(data.return);
@@ -341,6 +363,8 @@ function viewMailBox(id) {
                         </div>  
                     </div>  
                     `);
+
+                    intervalStopMailBox();
             },
             error: function (){
 
