@@ -7,7 +7,11 @@
                 require_once('../funcs/user/login.php');
                 exit();
             break;
-        
+
+            case 'register':
+                require_once('../funcs/user/register.php');
+                exit();
+            break;
 
         case 'inboxMail':
 
