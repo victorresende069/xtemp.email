@@ -1,24 +1,32 @@
 *{  
-    background: rgb(83, 174, 253);
     margin: 0px;
 }
-
+body{
+    background: rgb(83, 174, 253);
+}
 .app{
     display: flex;
     justify-content: center;
-    margin: 25px;
+    margin: 12px;
 }
 
 .form {
+    background: #09487e8a;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    padding: 22px;
+    width: 40%;
+    height: 315px;
+    border: 2px solid #004887a3;
+    box-shadow: inset 0 0 17px 2px #00427a;
+    border-radius: 10px;
 }
 .form label{
     font-family: monospace;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .formInput input{
     background: white;
@@ -36,17 +44,25 @@
     margin-top: 10px;
     font-weight: bold;
     font-family: monospace;
-    border: 8px red;
-    border-radius: 4px;
     height: 30px;
     width: 120px;
+    border: 2px solid #2072b9;
+    box-shadow: 0 0 5px 4px #1965a7;
+    border-radius: 5px;
     cursor: pointer;
 }
 .h1Form{
     font-family: monospace;
     font-size: 40px;
     margin-bottom: 25px;
+    color: white;
 }
+
+.formInput label{
+    color: white;
+}
+
+
 
 .formSubmit{
     margin-top: 10px;
@@ -57,4 +73,15 @@
     font-family: monospace;
     font-size: 14px;
     font-weight: 600;
+}
+
+/*MOBILE*/
+@media (max-width:768px)  { 
+
+    .form {
+        width: 70%;
+        height: 350px;
+    }
+
+    
 }
